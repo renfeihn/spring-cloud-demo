@@ -16,10 +16,9 @@ public class ConsumerTestController {
 
 
     @RequestMapping("hello")
-    public String hello(String name){
+    public String hello(String name) {
         return testService.hello(name);
     }
-
 
 
 }
