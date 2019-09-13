@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: demo-zuul    #工程名(在注册中心的页面看到的名字)
+server:
+  port: 8085  #端口号
+
+zuul:
+  routes:
+    test:
+      path: /test/**
+      serviceId: demo-consumer
+    api-consumer:
+      path: /consumer/**
+      serviceId: demo-consumer
+    api-producer:
+      path: /producer/**
+      serviceId: demo-producer
+
+eureka:
+  client:
+    register-with-eureka: true  #是否注册(服务的提供者是需要注册到注册中心的) 默认就是true
+    fetch-registry: true   #是否获取注册信息
+    service-url:
+      defaultZone: http://192.168.2.3:9990/eureka/  #这里和注册中心的一样就能注册到注册中心
+  instance:
+    prefer-ip-address: true
